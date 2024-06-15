@@ -1,6 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+
+//main body reducer: {
+//  components: [
+//  {header reducer}
+//  {body reducer}
+//  {footer reducer}
+//  {buttons reducer}
+//]
+//}
+
 
 function App() {
   return (

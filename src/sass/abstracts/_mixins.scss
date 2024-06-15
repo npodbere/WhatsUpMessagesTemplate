@@ -1,0 +1,30 @@
+// Media query manager
+
+/*
+Screen width  | Size            | $breakpoint arg
+--------------+-----------------+----------------
+0 - 768px     | Phone           | phone
+768 - 1184x   | Tablet portrait | tab-port
+1184 - 1800px | Desktop         |
+1800px -      | Big desktop     | big-desktop
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 48em) {
+      @content;
+    } // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 74em) {
+      @content;
+    } // 1184px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } // 1800px
+  }
+}
