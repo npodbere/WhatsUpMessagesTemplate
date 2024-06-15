@@ -3,12 +3,25 @@ import logo from './logo.svg';
 
 //main body reducer: {
 //  components: [
-//  {header reducer}
-//  {body reducer}
-//  {footer reducer}
-//  {buttons reducer}
+//  {header state}
+//  {body state}
+//  {footer state}
+//  {buttons state}
 //]
 //}
+
+// SideBar ->  {
+  // Header component
+  // Body message component -> Tips component
+  // Footer text component
+  // Buttons components
+  //}
+// Message Review -> {
+  // Message example -> {
+  //}
+//}
+//Side menu
+// Sliders
 
 
 function App() {
