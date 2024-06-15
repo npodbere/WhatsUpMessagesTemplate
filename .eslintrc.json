@@ -1,0 +1,119 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  // Prettier extensions should always be last, so they can override some rules
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:react/jsx-runtime" // This will remove error when JSX is used without React.
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  // These settings are supplied to every rule that will be executed.
+  // This is useful for custom rules to have access to the same information and be easily configurable.
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jest", "prettier"],
+  "rules": {
+    // Recognize redux-form's Field as a control component.
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "controlComponents": ["Field"],
+        "depth": 3
+      }
+    ],
+    // Allow any files with the following extensions to contain jsx syntax.
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    // Extends `eslint/no-use-before-define` with support for TypeScript. The base rule is disabled
+    // as it can report incorrect errors in conjunction with
+    "no-use-before-define": "off",
+    // Extends `eslint/no-shadow` with support for TypeScript. The base rule is disabled
+    // as it can report incorrect errors in conjunction with
+    "no-shadow": "off",
+    // Enable detecting unused variables for Typescript and resolves import vars used as types error.
+    // Extends `eslint/no-unused-vars` with support for TypeScript. The base rule is disabled
+    // as it can report incorrect errors in conjunction with
+    "no-unused-vars": "off",
+    // We do not need explicit prop checking since TypeScript already checks prop types.
+    "react/prop-types": "off",
+    // We want to be able to do props spreading.
+    "react/jsx-props-no-spreading": "off",
+    // Allow importing the following file types without needing to specify the extension.
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    //To allow "///" syntax (used in react-env.d.ts).
+    "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    // We want to be able to reassign param(for service worker)
+    "no-param-reassign": "off",
+    // Checks React "Rules of Hooks" (https://reactjs.org/docs/hooks-rules.html).
+    "react-hooks/rules-of-hooks": "error",
+    // The sort-imports and import/order rules resolve a conflict between ESLint and Prettier, which
+    // causes sorting imports to fail.
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    // Remove error if imported devDependencies
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    // Allow ++ operator in for loops
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    // Turning off this rule until eslint upgraded to version 8
+    "@typescript-eslint/no-explicit-any": "off",
+    // Require object keys to be sorted
+    "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false, "minKeys": 2}]
+
+  }
+}
