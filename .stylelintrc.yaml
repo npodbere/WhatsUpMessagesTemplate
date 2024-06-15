@@ -1,0 +1,20 @@
+syntax: scss
+extends:
+  - stylelint-config-sass-guidelines
+  - stylelint-scss
+  - stylelint-prettier/recommended
+plugins:
+  - stylelint-scss
+  - stylelint-prettier
+
+rules:
+  # Stop stylelint from showing an error when using an unknown "@" rule.
+  at-rule-no-unknown: null
+  # Only check @ symbol rule when running scss plugin.
+  scss/at-rule-no-unknown: true
+  # Disable max-nesting-depth rule so we do not go back to the complexity of CSS.
+  max-nesting-depth: null
+  # Allow the border to be set to none.
+  declaration-property-value-disallowed-list: null
+  # Allow css prefixes such as -webkit, -moz, etc.
+  value-no-vendor-prefix: null

@@ -25,7 +25,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "stylelint": "stylelint 'src/**/*.scss'",
+    "stylelint:fix": "stylelint 'src/**/*.scss' --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +54,11 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.34.2",
-    "eslint-plugin-react-hooks": "^4.6.2"
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "stylelint": "^16.6.1",
+    "stylelint-config-recommended": "^14.0.0",
+    "stylelint-config-sass-guidelines": "^11.1.0",
+    "stylelint-prettier": "^5.0.0",
+    "stylelint-scss": "^6.3.1"
   }
 }
