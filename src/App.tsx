@@ -1,28 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import logo from "./logo.svg";
 
-//main body reducer: {
+// main body reducer: {
 //  components: [
 //  {header state}
 //  {body state}
 //  {footer state}
 //  {buttons state}
-//]
-//}
+// ]
+// }
 
 // SideBar ->  {
-  // Header component
-  // Body message component -> Tips component
-  // Footer text component
-  // Buttons components
-  //}
+// Header component
+// Body message component -> Tips component
+// Footer text component
+// Buttons components
+// }
 // Message Review -> {
-  // Message example -> {
-  //}
-//}
-//Side menu
+// Message example -> {
+// }
+// }
+// Side menu
 // Sliders
-
 
 function App() {
   return (

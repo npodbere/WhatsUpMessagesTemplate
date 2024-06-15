@@ -1,6 +1,6 @@
-//header
+// header
 
-//Curl to upload an image to whats up
+// Curl to upload an image to whats up
 // curl -X POST 'https://graph.facebook.com/v20.0/<PHONE_NUMBER_ID>/media' \
 // -H 'Authorization: Bearer <ACCESS_TOKEN>' \
 // -F 'file=@"2jC60Vdjn/cross-trainers-summer-sale.jpg"' \
@@ -18,7 +18,6 @@
 // 'Authorization: Bearer ACCESS_TOKEN'
 // 'Content-Type: application/json'
 
-
 // BODY
 //  {
 //   "messaging_product": "whatsapp",
@@ -31,17 +30,17 @@
 //       "code": "LANGUAGE_AND_LOCALE_CODE"
 //     },
 //     "components": [
-  // {
-  //   "type": "header",
-  //   "parameters": [
-  //     {
-  //       "type": "image",
-  //       "image": {
-  //         "link": Link from image upload endpoint that returns id
-  //       }
-  //     }
-  //   ]
-  // },
+// {
+//   "type": "header",
+//   "parameters": [
+//     {
+//       "type": "image",
+//       "image": {
+//         "link": Link from image upload endpoint that returns id
+//       }
+//     }
+//   ]
+// },
 //       {
 //         "type": "body",
 //         "parameters": [
@@ -91,4 +90,4 @@
 //   }
 // }
 
-export {}
+export {};
