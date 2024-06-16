@@ -1,4 +1,8 @@
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import CreateCampaignPage from "./components/CreateCampaignPage";
+import SideBar from "./components/sidebar/SideBar";
+import Header from "./components/Header";
 
 // main body reducer: {
 //  components: [
@@ -24,22 +28,54 @@ import logo from "./logo.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="main-container">
+        <SideBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div style={{ width: "100%" }}>
+                <Header title="Main page is still under construction" />
+              </div>
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <div style={{ width: "100%" }}>
+                <Header title="Account page is still under construction" />
+              </div>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <div style={{ width: "100%" }}>
+                <Header title="Dashboard page is still under construction" />
+              </div>
+            }
+          />
+          <Route
+            path="/message"
+            element={
+              <div style={{ width: "100%" }}>
+                <Header title="Message page is still under construction" />
+              </div>
+            }
+          />
+          <Route path="/campaign" element={<CreateCampaignPage />} />
+          <Route
+            path="*"
+            element={
+              <div style={{ width: "100%" }}>
+                <Header title="Oops... Something went wrong" />
+              </div>
+            }
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

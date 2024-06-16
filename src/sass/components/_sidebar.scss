@@ -1,0 +1,26 @@
+.sidebar {
+  &-container {
+    background-color: $black;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-link {
+    padding: 1.6rem;
+
+    &-selected {
+      border-right: 4px $blue solid;
+      transition: 0.3s;
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:not(:first-child) {
+        border-top: 1px solid $darker-gray;
+      }
+    }
+  }
+}
