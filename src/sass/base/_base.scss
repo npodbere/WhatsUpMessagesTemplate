@@ -125,10 +125,12 @@ body {
   text-transform: uppercase;
 }
 
-.tooltip:hover .tooltip-upper-container {
-  visibility: visible;
-}
-
 .disabled {
   opacity: 0.6;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  background-color: $lightgray;
 }

@@ -1,0 +1,29 @@
+.header {
+  &-container {
+    background-color: $white;
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.78);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    align-items: center;
+  }
+
+  &-right-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &-tips {
+    &-container {
+      display: flex;
+      background-color: $lighter-gray;
+      padding: 1rem 1.6rem;
+      gap: 1rem;
+      border-radius: 100px;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
