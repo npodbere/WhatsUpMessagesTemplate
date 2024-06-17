@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Header from "./Header";
 import CreateMessage from "./createMessage/CreateMessage";
-import Preview from "./createMessage/Preview";
+import Preview, { IButtons } from "./createMessage/Preview";
 
 const initialButtons = [
   { name: "Button 1", payload: "" },
@@ -14,7 +14,7 @@ function CreateCampaignPage() {
   const [image, setImage] = useState<any>(null);
   const [bodyText, setBodyText] = useState("");
   const [footerText, setFooterText] = useState("");
-  const [buttons, setButtons] = useState(initialButtons);
+  const [buttons, setButtons] = useState<IButtons[]>(initialButtons);
 
   const [headerExist, setHeaderExist] = useState(true);
   const [footerExist, setFooterExist] = useState(false);
@@ -33,17 +33,26 @@ function CreateCampaignPage() {
             <CreateMessage bodyText={bodyText} handleImageSubmit={handleChange}
               setBodyText={(value: string) => setBodyText(value)}
               isHeaderActive={headerExist}
-              changeHeaderActiveStatus={(value: boolean) =>
-                setHeaderExist(value)
-              }
+              changeHeaderActiveStatus={(value: boolean) => {
+                if (value === false) {
+                  setImage(null);
+                }
+                setHeaderExist(value);
+              }}
               isFooterActive={footerExist}
-              changeFooterActiveStatus={(value: boolean) =>
-                setFooterExist(value)
-              }
+              changeFooterActiveStatus={(value: boolean) => {
+                if (value === false) {
+                  setFooterText("");
+                }
+                setFooterExist(value);
+              }}
               isButtonsActive={buttonsExist}
-              changeButtonsActiveStatus={(value: boolean) =>
-                setButtonsExist(value)
-              }
+              changeButtonsActiveStatus={(value: boolean) => {
+                if (value === false) {
+                  setButtons(initialButtons);
+                }
+                setButtonsExist(value);
+              }}
               footerText={footerText}
               setFooterText={(value: string) => setFooterText(value)}
               buttons={buttons}
@@ -98,7 +107,7 @@ function CreateCampaignPage() {
                 }
                 if (buttonsExist) {
                   let index = 0;
-                  buttons.forEach((button: any) => {
+                  buttons.forEach((button: IButtons) => {
                     if (button.payload !== "") {
                       components.push({
                         index,

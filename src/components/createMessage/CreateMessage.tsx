@@ -8,6 +8,7 @@ import CommonBlockContainer from "./CommonBlockContainer";
 import CommonBlockTitle from "./CommonBlockTitle";
 import Header from "./Header";
 import Body from "./Body";
+import { IButtons } from "./Preview";
 
 interface ICreateMessage {
   handleImageSubmit: any;
@@ -21,7 +22,7 @@ interface ICreateMessage {
   setFooterText: any;
   isButtonsActive: boolean;
   changeButtonsActiveStatus: any;
-  buttons: any;
+  buttons: IButtons[];
   setButtons: any;
 }
 
@@ -102,9 +103,9 @@ function CreateMessage({
           changeActiveStatus={changeButtonsActiveStatus}
         />
         {isButtonsActive &&
-          buttons.map((button: any) => {
+          buttons.map((button: IButtons) => {
             return (
-              <div>
+              <div key={`${button.name}`}>
                 <div className="create-message-buttons">
                   <div className="text-tips">{button.name}</div>
                   <div style={{ cursor: "pointer" }}>
