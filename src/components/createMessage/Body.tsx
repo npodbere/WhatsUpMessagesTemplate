@@ -1,10 +1,21 @@
 import Tips from "../common/Tips";
 import { ReactComponent as Frame } from "../../img/Frame 1033.svg";
 
-function Body() {
+interface IBody {
+  bodyText: string;
+  setBodyText: any;
+}
+
+function Body({ bodyText, setBodyText }: IBody) {
   return (
     <>
-      <textarea className="create-message-body-text" rows={4} cols={35} />
+      <textarea
+        className="create-message-body-text"
+        rows={4}
+        cols={35}
+        value={bodyText}
+        onChange={(event) => setBodyText(event.target.value)}
+      />
       <Frame />
       <div className="margin-bottom-very-small" />
       <Tips

@@ -6,6 +6,8 @@ import Preview from "./createMessage/Preview";
 
 function CreateCampaignPage() {
   const [image, setImage] = useState<any>();
+  const [bodyText, setBodyText] = useState("");
+
   function handleChange(e: any) {
     setImage(URL.createObjectURL(e.target.files[0]));
   }
@@ -16,7 +18,7 @@ function CreateCampaignPage() {
         <div className="create-message-container">
           <div className="create-message-container-left">
             {/* eslint-disable-next-line */}
-            <CreateMessage handleImageSubmit={handleChange} />
+            <CreateMessage bodyText={bodyText} handleImageSubmit={handleChange} setBodyText={(value: any) => setBodyText(value)} />
           </div>
           <div className="create-message-action-btn-container">
             <button
@@ -34,7 +36,7 @@ function CreateCampaignPage() {
           </div>
         </div>
         <div className="create-message-container-right">
-          <Preview image={image} />
+          <Preview bodyText={bodyText} image={image} />
         </div>
       </div>
     </div>

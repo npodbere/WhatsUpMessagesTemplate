@@ -10,9 +10,15 @@ import Body from "./Body";
 
 interface ICreateMessage {
   handleImageSubmit: any;
+  bodyText: string;
+  setBodyText: any;
 }
 
-function CreateMessage({ handleImageSubmit }: ICreateMessage) {
+function CreateMessage({
+  handleImageSubmit,
+  bodyText,
+  setBodyText,
+}: ICreateMessage) {
   return (
     <div className="create-message-container">
       <div className="create-message-title">
@@ -32,7 +38,7 @@ function CreateMessage({ handleImageSubmit }: ICreateMessage) {
       <CommonBlockContainer>
         <>
           <CommonBlockTitle Icon={Text} title="Body message" />
-          <Body />
+          <Body bodyText={bodyText} setBodyText={setBodyText} />
         </>
       </CommonBlockContainer>
       <br />

@@ -2,9 +2,10 @@ import { ReactComponent as Message } from "../../img/message icon.svg";
 
 interface IPreview {
   image: any;
+  bodyText: string;
 }
 
-function Preview({ image }: IPreview) {
+function Preview({ image, bodyText }: IPreview) {
   return (
     <div className="create-message-preview-container">
       <div className="create-message-preview-title">
@@ -33,8 +34,11 @@ function Preview({ image }: IPreview) {
             >
               Body
             </button>
-            <div style={{ fontFamily: "SF Pro Text" }} className="text-tips">
-              This is bode test
+            <div
+              style={{ fontFamily: "SF Pro Text", overflow: "scroll" }}
+              className="text-tips"
+            >
+              {bodyText}
             </div>
           </div>
           <div className="create-message-preview-inner-footer">
@@ -44,7 +48,9 @@ function Preview({ image }: IPreview) {
             >
               Footer
             </button>
-            <p style={{ fontFamily: "SF Pro Text" }}>This is footer test</p>
+            <p style={{ fontFamily: "SF Pro Text", overflow: "scroll" }}>
+              This is footer test
+            </p>
           </div>
         </div>
       </div>
