@@ -1,12 +1,17 @@
 import { ReactComponent as Message } from "../../img/message icon.svg";
 
+export interface IButtons {
+  name: string;
+  payload: string;
+}
+
 interface IPreview {
   image: any;
   bodyText: string;
   headerExist: boolean;
   footerText: string;
   footerExist: boolean;
-  buttons: any;
+  buttons: IButtons[];
 }
 
 function Preview({
@@ -69,19 +74,19 @@ function Preview({
           )}
         </div>
         <div className="create-message-preview-btn-container">
-          {buttons.map((button: any) => {
-            if (button.payload !== "") {
-              return (
-                <button
-                  className="create-message-preview-btn button-blue-small"
-                  type="button"
-                >
-                  {button.name}
-                </button>
-              );
-            }
-            /* eslint-disable-next-line */
-            return <></>;
+          {buttons.map((button: IButtons) => {
+            return (
+              <div key={`${button.name}+${button.payload}`}>
+                {button.payload !== "" && (
+                  <button
+                    className="create-message-preview-btn button-blue-small"
+                    type="button"
+                  >
+                    {button.payload}
+                  </button>
+                )}
+              </div>
+            );
           })}
         </div>
       </div>

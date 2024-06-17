@@ -3,23 +3,22 @@ interface IToggleSwitch {
   changeActiveStatus?: any;
 }
 
-function ToggleSwitch({ isActive, changeActiveStatus }: IToggleSwitch) {
+function ToggleSwitch({
+  isActive = true,
+  changeActiveStatus = () => undefined,
+}: IToggleSwitch) {
   return (
     /* eslint-disable-next-line */
         <label className="toggle-button-switch">
       <input
         type="checkbox"
         checked={isActive}
+        onChange={() => undefined}
         onClick={() => changeActiveStatus(!isActive)}
       />
       <span className="toggle-button-switch-slider toggle-button-switch-slider-round" />
     </label>
   );
 }
-
-ToggleSwitch.defaultProps = {
-  changeActiveStatus: () => undefined,
-  isActive: true,
-};
 
 export default ToggleSwitch;

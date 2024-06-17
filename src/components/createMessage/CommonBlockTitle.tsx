@@ -13,8 +13,8 @@ function CommonBlockTitle({
   Icon,
   title,
   isOptional,
-  isActive,
-  changeActiveStatus,
+  isActive = true,
+  changeActiveStatus = () => undefined,
 }: ICommonBlockTitle) {
   return (
     <div className="create-message-header-title-container">
@@ -34,10 +34,5 @@ function CommonBlockTitle({
     </div>
   );
 }
-
-CommonBlockTitle.defaultProps = {
-  changeActiveStatus: () => undefined,
-  isActive: true,
-};
 
 export default CommonBlockTitle;
