@@ -1,4 +1,4 @@
-// header
+// header image
 
 // Curl to upload an image to whats up
 // curl -X POST 'https://graph.facebook.com/v20.0/<PHONE_NUMBER_ID>/media' \

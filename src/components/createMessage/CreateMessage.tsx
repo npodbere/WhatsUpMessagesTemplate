@@ -8,7 +8,21 @@ import CommonBlockTitle from "./CommonBlockTitle";
 import Header from "./Header";
 import Body from "./Body";
 
-function createMessage() {
+interface ICreateMessage {
+  handleImageSubmit: any;
+  bodyText: string;
+  setBodyText: any;
+  isHeaderActive: boolean;
+  changeHeaderActiveStatus: any;
+}
+
+function CreateMessage({
+  handleImageSubmit,
+  bodyText,
+  setBodyText,
+  isHeaderActive,
+  changeHeaderActiveStatus,
+}: ICreateMessage) {
   return (
     <div className="create-message-container">
       <div className="create-message-title">
@@ -20,27 +34,37 @@ function createMessage() {
       <div className="title-small margin-bottom-very-small">Content</div>
       <CommonBlockContainer>
         <>
-          <CommonBlockTitle Icon={Photo} title="Header" />
-          <Header />
+          <CommonBlockTitle
+            Icon={Photo}
+            title="Header"
+            isOptional
+            isActive={isHeaderActive}
+            changeActiveStatus={changeHeaderActiveStatus}
+          />
+          {isHeaderActive && <Header handleImageSubmit={handleImageSubmit} />}
         </>
       </CommonBlockContainer>
       <br />
       <CommonBlockContainer>
         <>
-          <CommonBlockTitle Icon={Text} title="Body message" />
-          <Body />
+          <CommonBlockTitle
+            Icon={Text}
+            title="Body message"
+            isOptional={false}
+          />
+          <Body bodyText={bodyText} setBodyText={setBodyText} />
         </>
       </CommonBlockContainer>
       <br />
       <CommonBlockContainer>
-        <CommonBlockTitle Icon={Text} title="Footer Text" />
+        <CommonBlockTitle Icon={Text} title="Footer Text" isOptional />
       </CommonBlockContainer>
       <br />
       <CommonBlockContainer>
-        <CommonBlockTitle Icon={ButtonIcon} title="Buttons" />
+        <CommonBlockTitle Icon={ButtonIcon} title="Buttons" isOptional />
       </CommonBlockContainer>
     </div>
   );
 }
 
-export default createMessage;
+export default CreateMessage;
