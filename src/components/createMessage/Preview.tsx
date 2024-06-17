@@ -4,9 +4,19 @@ interface IPreview {
   image: any;
   bodyText: string;
   headerExist: boolean;
+  footerText: string;
+  footerExist: boolean;
+  buttons: any;
 }
 
-function Preview({ image, bodyText, headerExist }: IPreview) {
+function Preview({
+  image,
+  bodyText,
+  headerExist,
+  footerText,
+  footerExist,
+  buttons,
+}: IPreview) {
   return (
     <div className="create-message-preview-container">
       <div className="create-message-preview-title">
@@ -44,17 +54,35 @@ function Preview({ image, bodyText, headerExist }: IPreview) {
               {bodyText}
             </div>
           </div>
-          <div className="create-message-preview-inner-footer">
-            <button
-              type="button"
-              className="create-message-preview-inner-btn-green"
-            >
-              Footer
-            </button>
-            <p style={{ fontFamily: "SF Pro Text", overflow: "scroll" }}>
-              This is footer test
-            </p>
-          </div>
+          {footerExist && (
+            <div className="create-message-preview-inner-footer">
+              <button
+                type="button"
+                className="create-message-preview-inner-btn-green"
+              >
+                Footer
+              </button>
+              <p style={{ fontFamily: "SF Pro Text", overflow: "scroll" }}>
+                {footerText}
+              </p>
+            </div>
+          )}
+        </div>
+        <div className="create-message-preview-btn-container">
+          {buttons.map((button: any) => {
+            if (button.payload !== "") {
+              return (
+                <button
+                  className="create-message-preview-btn button-blue-small"
+                  type="button"
+                >
+                  {button.name}
+                </button>
+              );
+            }
+            /* eslint-disable-next-line */
+            return <></>;
+          })}
         </div>
       </div>
     </div>

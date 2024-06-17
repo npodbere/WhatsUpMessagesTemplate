@@ -1,4 +1,20 @@
 .create-message {
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  &-text {
+    background-color: $white;
+    border: 1px solid #0000001f;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+
   &-container {
     &-main {
       display: flex;
@@ -39,6 +55,10 @@
     &-save {
       background-color: $blue;
       color: $white;
+
+      :disabled {
+        opacity: 0.1;
+      }
     }
 
     &-delete {
@@ -49,6 +69,22 @@
   }
 
   &-preview {
+    &-btn {
+      background-color: $white;
+      color: $blue;
+      border: 1px solid $blue;
+      width: 100%;
+      border-radius: 5px;
+      padding: 0.3rem 0;
+      margin-top: 1rem;
+      cursor: pointer;
+
+      &-container {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
     &-container {
       background-color: $white;
       padding: 2rem;
