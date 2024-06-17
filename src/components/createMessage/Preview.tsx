@@ -1,6 +1,10 @@
 import { ReactComponent as Message } from "../../img/message icon.svg";
 
-function Preview() {
+interface IPreview {
+  image: any;
+}
+
+function Preview({ image }: IPreview) {
   return (
     <div className="create-message-preview-container">
       <div className="create-message-preview-title">
@@ -16,7 +20,11 @@ function Preview() {
             >
               Header
             </button>
-            Test
+            <img
+              className="create-message-preview-inner-image-file"
+              src={image}
+              alt="Preview"
+            />
           </div>
           <div className="create-message-preview-inner-body">
             <button

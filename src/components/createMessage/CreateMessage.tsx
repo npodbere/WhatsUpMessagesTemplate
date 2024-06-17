@@ -8,7 +8,11 @@ import CommonBlockTitle from "./CommonBlockTitle";
 import Header from "./Header";
 import Body from "./Body";
 
-function createMessage() {
+interface ICreateMessage {
+  handleImageSubmit: any;
+}
+
+function CreateMessage({ handleImageSubmit }: ICreateMessage) {
   return (
     <div className="create-message-container">
       <div className="create-message-title">
@@ -21,7 +25,7 @@ function createMessage() {
       <CommonBlockContainer>
         <>
           <CommonBlockTitle Icon={Photo} title="Header" />
-          <Header />
+          <Header handleImageSubmit={handleImageSubmit} />
         </>
       </CommonBlockContainer>
       <br />
@@ -43,4 +47,4 @@ function createMessage() {
   );
 }
 
-export default createMessage;
+export default CreateMessage;
