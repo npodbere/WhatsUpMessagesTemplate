@@ -3,9 +3,10 @@ import { ReactComponent as Message } from "../../img/message icon.svg";
 interface IPreview {
   image: any;
   bodyText: string;
+  headerExist: boolean;
 }
 
-function Preview({ image, bodyText }: IPreview) {
+function Preview({ image, bodyText, headerExist }: IPreview) {
   return (
     <div className="create-message-preview-container">
       <div className="create-message-preview-title">
@@ -14,19 +15,21 @@ function Preview({ image, bodyText }: IPreview) {
       </div>
       <div className="create-message-preview-outline">
         <div className="create-message-preview-inner">
-          <div className="create-message-preview-inner-image">
-            <button
-              type="button"
-              className="create-message-preview-inner-btn-green create-message-preview-inner-btn-green-image"
-            >
-              Header
-            </button>
-            <img
-              className="create-message-preview-inner-image-file"
-              src={image}
-              alt="Preview"
-            />
-          </div>
+          {headerExist && (
+            <div className="create-message-preview-inner-image">
+              <button
+                type="button"
+                className="create-message-preview-inner-btn-green create-message-preview-inner-btn-green-image"
+              >
+                Header
+              </button>
+              <img
+                className="create-message-preview-inner-image-file"
+                src={image}
+                alt="Preview"
+              />
+            </div>
+          )}
           <div className="create-message-preview-inner-body">
             <button
               type="button"

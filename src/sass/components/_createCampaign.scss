@@ -2,6 +2,10 @@
   &-container {
     &-main {
       display: flex;
+      @include respond(phone) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
     }
 
     &-left {
@@ -55,6 +59,11 @@
       right: 50%;
       border-radius: 10px;
       width: 30rem;
+
+      @include respond(phone) {
+        position: static;
+        margin: 2rem auto;
+      }
     }
 
     &-title {
@@ -80,6 +89,7 @@
         width: 22rem;
         height: 11rem;
         position: relative;
+
         &-file {
           width: 20rem;
           height: 11rem;
@@ -146,6 +156,20 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+      &-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &-required {
+        background-color: #f5f5f5;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 2rem;
+      }
     }
 
     &-select {
@@ -170,13 +194,12 @@
       padding: 0.5rem 1rem;
       margin: 1rem 0;
       cursor: pointer;
-      input[type="file"] {
-        display: none;
-      }
     }
   }
 
   &-body-text {
     margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 10px;
   }
 }

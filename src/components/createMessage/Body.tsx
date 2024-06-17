@@ -10,9 +10,9 @@ function Body({ bodyText, setBodyText }: IBody) {
   return (
     <>
       <textarea
-        className="create-message-body-text"
-        rows={4}
-        cols={35}
+        className="create-message-body-text text-tips"
+        rows={6}
+        cols={32}
         value={bodyText}
         onChange={(event) => setBodyText(event.target.value)}
       />
