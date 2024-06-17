@@ -1,0 +1,67 @@
+.create-message-container {
+  &-main {
+    display: flex;
+  }
+  &-left {
+    background-color: $white;
+    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.08);
+    width: 36rem;
+    padding: 2rem 3rem;
+  }
+  &-right {
+    background-color: yellow;
+    width: 100%;
+  }
+}
+
+.create-message {
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &-title {
+    display: flex;
+    white-space: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  &-header {
+    &-container {
+      border: 1px solid rgb(0, 0, 0, .2);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    &-title {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    &-select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgb(0, 0, 0, .2);
+      width: 100%;
+      margin: 2rem 0;
+      appearance: none;
+      background-image: url("../../img/Arrow.svg");
+      background-position-x: 90%;
+      background-position-y: 50%;
+      background-repeat: no-repeat;
+    }
+    &-upload-btn {
+      background-color: $white;
+      color: $blue;
+      border: 1px solid $blue;
+      text-transform: uppercase;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+    }
+  }
+  &-body-text {
+    margin: 1rem 0;
+  }
+}

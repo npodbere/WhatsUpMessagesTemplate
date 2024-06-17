@@ -1,0 +1,30 @@
+.tips {
+  &-container {
+    background-color: #F5F5F5;
+    padding: 1rem 2rem 2rem 3rem;
+    border-radius: 10px;
+  }
+  &-title {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-flashlight {
+      path {
+        fill: $black;
+      }
+    }
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+  &-learn-more {
+    background-color: transparent;
+    color: $blue;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+}
