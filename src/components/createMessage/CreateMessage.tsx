@@ -2,6 +2,7 @@ import { ReactComponent as Close } from "../../img/Close.svg";
 import { ReactComponent as Photo } from "../../img/photo.svg";
 import { ReactComponent as Text } from "../../img/Text.svg";
 import { ReactComponent as ButtonIcon } from "../../img/Btn.svg";
+import { ReactComponent as Trash } from "../../img/delete.svg";
 
 import CommonBlockContainer from "./CommonBlockContainer";
 import CommonBlockTitle from "./CommonBlockTitle";
@@ -18,6 +19,10 @@ interface ICreateMessage {
   changeFooterActiveStatus: any;
   footerText: string;
   setFooterText: any;
+  isButtonsActive: boolean;
+  changeButtonsActiveStatus: any;
+  buttons: any;
+  setButtons: any;
 }
 
 function CreateMessage({
@@ -30,6 +35,10 @@ function CreateMessage({
   isFooterActive,
   footerText,
   setFooterText,
+  isButtonsActive,
+  changeButtonsActiveStatus,
+  buttons,
+  setButtons,
 }: ICreateMessage) {
   return (
     <div className="create-message-container">
@@ -85,7 +94,34 @@ function CreateMessage({
       </CommonBlockContainer>
       <br />
       <CommonBlockContainer>
-        <CommonBlockTitle Icon={ButtonIcon} title="Buttons" isOptional />
+        <CommonBlockTitle
+          Icon={ButtonIcon}
+          title="Buttons"
+          isOptional
+          isActive={isButtonsActive}
+          changeActiveStatus={changeButtonsActiveStatus}
+        />
+        {isButtonsActive &&
+          buttons.map((button: any) => {
+            return (
+              <div>
+                <div className="create-message-buttons">
+                  <div className="text-tips">{button.name}</div>
+                  <div style={{ cursor: "pointer" }}>
+                    <Trash />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  maxLength={25}
+                  className="text-tips create-message-text"
+                  placeholder="Enter Text"
+                  value={button.payload}
+                  onChange={(event) => setButtons(event.target.value, button)}
+                />
+              </div>
+            );
+          })}
       </CommonBlockContainer>
     </div>
   );

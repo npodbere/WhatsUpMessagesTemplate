@@ -4,13 +4,21 @@ import Header from "./Header";
 import CreateMessage from "./createMessage/CreateMessage";
 import Preview from "./createMessage/Preview";
 
+const initialButtons = [
+  { name: "Button 1", payload: "" },
+  { name: "Button 2", payload: "" },
+  { name: "Button 3", payload: "" },
+];
+
 function CreateCampaignPage() {
   const [image, setImage] = useState<any>(null);
   const [bodyText, setBodyText] = useState("");
   const [footerText, setFooterText] = useState("");
+  const [buttons, setButtons] = useState(initialButtons);
 
   const [headerExist, setHeaderExist] = useState(true);
   const [footerExist, setFooterExist] = useState(false);
+  const [buttonsExist, setButtonsExist] = useState(false);
 
   function handleChange(e: any) {
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -32,8 +40,20 @@ function CreateCampaignPage() {
               changeFooterActiveStatus={(value: boolean) =>
                 setFooterExist(value)
               }
+              isButtonsActive={buttonsExist}
+              changeButtonsActiveStatus={(value: boolean) =>
+                setButtonsExist(value)
+              }
               footerText={footerText}
               setFooterText={(value: string) => setFooterText(value)}
+              buttons={buttons}
+              setButtons={(value: string, button: any) => {
+                const newButtons = [...buttons];
+                const index = newButtons.indexOf(button);
+                const newButton = { name: button.name, payload: value };
+                newButtons[index] = newButton;
+                setButtons(newButtons);
+              }}
             />
           </div>
           <div className="create-message-action-btn-container">
@@ -76,8 +96,28 @@ function CreateCampaignPage() {
                     type: "footer",
                   });
                 }
+                if (buttonsExist) {
+                  let index = 0;
+                  buttons.forEach((button: any) => {
+                    if (button.payload !== "") {
+                      components.push({
+                        index,
+                        parameters: [
+                          {
+                            payload: button.payload,
+                            type: "payload",
+                          },
+                        ],
+                        sub_type: "quick_reply",
+                        type: "button",
+                      });
+                      index += 1;
+                    }
+                  });
+                }
                 console.log(components);
               }}
+              disabled={bodyText === ""}
             >
               Save
             </button>
@@ -87,6 +127,8 @@ function CreateCampaignPage() {
               onClick={() => {
                 setImage(null);
                 setBodyText("");
+                setButtons(initialButtons);
+                setFooterText("");
               }}
             >
               Delete
@@ -100,6 +142,7 @@ function CreateCampaignPage() {
             headerExist={headerExist}
             footerText={footerText}
             footerExist={footerExist}
+            buttons={buttons}
           />
         </div>
       </div>

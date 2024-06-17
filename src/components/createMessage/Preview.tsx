@@ -6,6 +6,7 @@ interface IPreview {
   headerExist: boolean;
   footerText: string;
   footerExist: boolean;
+  buttons: any;
 }
 
 function Preview({
@@ -14,6 +15,7 @@ function Preview({
   headerExist,
   footerText,
   footerExist,
+  buttons,
 }: IPreview) {
   return (
     <div className="create-message-preview-container">
@@ -65,6 +67,22 @@ function Preview({
               </p>
             </div>
           )}
+        </div>
+        <div className="create-message-preview-btn-container">
+          {buttons.map((button: any) => {
+            if (button.payload !== "") {
+              return (
+                <button
+                  className="create-message-preview-btn button-blue-small"
+                  type="button"
+                >
+                  {button.name}
+                </button>
+              );
+            }
+            /* eslint-disable-next-line */
+            return <></>;
+          })}
         </div>
       </div>
     </div>
