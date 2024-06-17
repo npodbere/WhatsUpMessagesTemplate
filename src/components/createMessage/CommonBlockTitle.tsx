@@ -1,4 +1,5 @@
 import { ReactComponent as Vector } from "../../img/Vector.svg";
+import ToggleSwitch from "../common/ToggleSwitch";
 
 interface ICommonBlockTitle {
   Icon: any;
@@ -23,10 +24,9 @@ function CommonBlockTitle({
         <Vector />
       </div>
       {isOptional ? (
-        <input
-          type="checkbox"
-          checked={isActive}
-          onClick={() => changeActiveStatus(!isActive)}
+        <ToggleSwitch
+          isActive={isActive}
+          changeActiveStatus={changeActiveStatus}
         />
       ) : (
         <div className="create-message-header-title-required">Required</div>
