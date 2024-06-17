@@ -1,0 +1,51 @@
+.toggle-button {
+  &-switch {
+    display: inline-block;
+    height: 1.4rem;
+    position: relative;
+    width: 4rem;
+
+    &-slider {
+      background-color: #9eceff;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: 0.4s;
+
+      /* For round sliders */
+      &-round {
+        border-radius: 2.8rem;
+      }
+
+      &-round::before {
+        border-radius: 50%;
+      }
+    }
+
+    &-slider::before {
+      background-position: center;
+      content: "";
+      height: 2.1rem;
+      left: 0;
+      position: absolute;
+      top: -0.3rem;
+      transition: 0.4s;
+      width: 2.1rem;
+      background-color: $blue;
+    }
+
+    input {
+      height: 0;
+      opacity: 0;
+      width: 0;
+    }
+
+    input:checked + .toggle-button-switch-slider::before {
+      background-position: center;
+      transform: translateX(2.3rem);
+    }
+  }
+}
