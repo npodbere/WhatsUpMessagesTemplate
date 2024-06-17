@@ -1,5 +1,6 @@
 import Header from "./Header";
 import CreateMessage from "./createMessage/CreateMessage";
+import Preview from "./createMessage/Preview";
 
 function CreateCampaignPage() {
   return (
@@ -10,8 +11,24 @@ function CreateCampaignPage() {
           <div className="create-message-container-left">
             <CreateMessage />
           </div>
+          <div className="create-message-action-btn-container">
+            <button
+              type="button"
+              className="create-message-action-btn create-message-action-btn-save"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              className="create-message-action-btn create-message-action-btn-delete"
+            >
+              Delete
+            </button>
+          </div>
         </div>
-        <div className="create-message-container-right">Test</div>
+        <div className="create-message-container-right">
+          <Preview />
+        </div>
       </div>
     </div>
   );
