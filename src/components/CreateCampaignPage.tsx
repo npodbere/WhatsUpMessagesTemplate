@@ -7,8 +7,10 @@ import Preview from "./createMessage/Preview";
 function CreateCampaignPage() {
   const [image, setImage] = useState<any>(null);
   const [bodyText, setBodyText] = useState("");
+  const [footerText, setFooterText] = useState("");
 
   const [headerExist, setHeaderExist] = useState(true);
+  const [footerExist, setFooterExist] = useState(false);
 
   function handleChange(e: any) {
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -20,7 +22,19 @@ function CreateCampaignPage() {
         <div className="create-message-container">
           <div className="create-message-container-left">
             {/* eslint-disable-next-line */}
-            <CreateMessage bodyText={bodyText} handleImageSubmit={handleChange} setBodyText={(value: any) => setBodyText(value)} isHeaderActive={headerExist} changeHeaderActiveStatus={(value: boolean) => setHeaderExist(value)} />
+            <CreateMessage bodyText={bodyText} handleImageSubmit={handleChange}
+              setBodyText={(value: string) => setBodyText(value)}
+              isHeaderActive={headerExist}
+              changeHeaderActiveStatus={(value: boolean) =>
+                setHeaderExist(value)
+              }
+              isFooterActive={footerExist}
+              changeFooterActiveStatus={(value: boolean) =>
+                setFooterExist(value)
+              }
+              footerText={footerText}
+              setFooterText={(value: string) => setFooterText(value)}
+            />
           </div>
           <div className="create-message-action-btn-container">
             <button
@@ -51,6 +65,17 @@ function CreateCampaignPage() {
                     type: "header",
                   });
                 }
+                if (footerExist) {
+                  components.push({
+                    parameters: [
+                      {
+                        text: "TEXT_STRING",
+                        type: "text",
+                      },
+                    ],
+                    type: "footer",
+                  });
+                }
                 console.log(components);
               }}
             >
@@ -73,6 +98,8 @@ function CreateCampaignPage() {
             bodyText={bodyText}
             image={image}
             headerExist={headerExist}
+            footerText={footerText}
+            footerExist={footerExist}
           />
         </div>
       </div>

@@ -14,6 +14,10 @@ interface ICreateMessage {
   setBodyText: any;
   isHeaderActive: boolean;
   changeHeaderActiveStatus: any;
+  isFooterActive: boolean;
+  changeFooterActiveStatus: any;
+  footerText: string;
+  setFooterText: any;
 }
 
 function CreateMessage({
@@ -22,6 +26,10 @@ function CreateMessage({
   setBodyText,
   isHeaderActive,
   changeHeaderActiveStatus,
+  changeFooterActiveStatus,
+  isFooterActive,
+  footerText,
+  setFooterText,
 }: ICreateMessage) {
   return (
     <div className="create-message-container">
@@ -57,7 +65,23 @@ function CreateMessage({
       </CommonBlockContainer>
       <br />
       <CommonBlockContainer>
-        <CommonBlockTitle Icon={Text} title="Footer Text" isOptional />
+        <CommonBlockTitle
+          Icon={Text}
+          title="Footer Text"
+          isOptional
+          isActive={isFooterActive}
+          changeActiveStatus={changeFooterActiveStatus}
+        />
+        {isFooterActive && (
+          <input
+            type="text"
+            maxLength={25}
+            className="text-tips create-message-text"
+            placeholder="Enter Text"
+            value={footerText}
+            onChange={(event) => setFooterText(event.target.value)}
+          />
+        )}
       </CommonBlockContainer>
       <br />
       <CommonBlockContainer>
