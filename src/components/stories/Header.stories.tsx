@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const initialRendering: Story = {
+export const InitialRendering: Story = {
   args: {
     title: "Header Title",
   },
