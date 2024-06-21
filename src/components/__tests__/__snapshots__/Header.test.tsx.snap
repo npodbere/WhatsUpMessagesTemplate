@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initial rendering of the header 1`] = `
+<div
+  className="header-container"
+>
+  <div
+    className="title-small"
+  >
+    Header Title
+  </div>
+  <div
+    className="header-right-container"
+  >
+    <div
+      className="header-tips-container"
+    >
+      <svg>
+        FlashLight.svg
+      </svg>
+      <div
+        className="button-blue-small"
+      >
+        Tips
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <svg>
+        Close.svg
+      </svg>
+    </div>
+  </div>
+</div>
+`;
